@@ -3,7 +3,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 class NotificationService {
   final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
 
-  initFCM() async {
+  Future<void> initFCM() async {
     await _firebaseMessaging.requestPermission();
 
     final fcmtoken = await _firebaseMessaging.getToken();

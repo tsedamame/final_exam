@@ -14,7 +14,7 @@ class GlobalProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // List of products
+  // products
   List<Product> _products = [];
   List<Product> get products => _products;
 
@@ -145,7 +145,6 @@ class GlobalProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // Check if product is favorite
   bool isFavorite(int productId) {
     if (!isLoggedIn) return false;
 
@@ -174,7 +173,6 @@ class GlobalProvider extends ChangeNotifier {
         });
   }
 
-  // Optional: streams for cart/favorites
   Stream<QuerySnapshot> cartStream() {
     if (!isLoggedIn) throw Exception('Must be logged in');
     return _firestore

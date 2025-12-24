@@ -27,12 +27,10 @@ class ProfilePage extends StatelessWidget {
                     actions: [
                       AuthStateChangeAction((context, state) {
                         if (state is SignedIn || state is UserCreated) {
-                          // Switch to Shop tab after login/register
                           Provider.of<GlobalProvider>(
                             context,
                             listen: false,
                           ).changeCurrentIdx(0);
-                          // Close SignInScreen
                           Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
@@ -52,12 +50,10 @@ class ProfilePage extends StatelessWidget {
         ),
       );
     } else {
-      // User signed in
       return ProfileScreen(
         providers: [EmailAuthProvider()],
         actions: [
           SignedOutAction((context) {
-            // Switch to Profile tab after sign out
             Provider.of<GlobalProvider>(
               context,
               listen: false,

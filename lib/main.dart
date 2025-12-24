@@ -33,7 +33,7 @@ final _router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      builder: (context, state) => const HomePage(), // Your main home widget
+      builder: (context, state) => const HomePage(),
       routes: [
         GoRoute(
           path: 'sign-in',
@@ -56,18 +56,16 @@ final _router = GoRouter(
                   };
                   if (user == null) return;
 
-                  // Set default display name if user is newly created
                   if (authState is UserCreated) {
                     user.updateDisplayName(user.email!.split('@')[0]);
                   }
 
-                  // Send verification email if not verified
                   if (!user.emailVerified) {
                     user.sendEmailVerification();
                     ScaffoldMessenger.of(context).showSnackBar(
                       const SnackBar(
                         content: Text(
-                          'Please check your email to verify your address',
+                          'Имейлээ шалгана уу',
                         ),
                       ),
                     );
